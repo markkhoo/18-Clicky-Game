@@ -16,20 +16,16 @@ class App extends Component {
 
   shuffle = (array) => {
     var currentIndex = array.length, temporaryValue, randomIndex;
-  
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-  
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-  
       // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     };
-
     return array;
   };
 
@@ -37,7 +33,6 @@ class App extends Component {
     let chosen1 = this.state.chosen;
     let score = this.state.score;
     let topScore = this.state.topScore;
-
     if (chosen1.includes(id)) {
       score = 0;
       chosen1 = [];
@@ -48,12 +43,9 @@ class App extends Component {
         topScore = score;
       };
     };
-
-    const shuffledImages = this.shuffle(this.state.images);
-
     this.setState({
-      images: [...shuffledImages],
-      chosen: [...chosen1],
+      images: this.shuffle(this.state.images),
+      chosen: chosen1,
       score: score,
       topScore: topScore
     });
