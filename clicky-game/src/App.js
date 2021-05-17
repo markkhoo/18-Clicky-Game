@@ -4,14 +4,17 @@ import Card from "./components/Card";
 import images from "./images.json";
 
 class App extends Component {
-  state = {
-    images: this.shuffle(images),
-    choosen: [],
-    score: 0,
-    topScore: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: this.shuffle(images),
+      chosen: [],
+      score: 0,
+      topScore: 0
+    };
+  }
 
-  shuffle(array) {
+  shuffle = (array) => {
     var currentIndex = array.length, temporaryValue, randomIndex;
   
     // While there remain elements to shuffle...
@@ -25,10 +28,36 @@ class App extends Component {
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
-    }
-  
+    };
+
     return array;
-  }
+  };
+
+  clicky = (id) => {
+    let chosen1 = this.state.chosen;
+    let score = this.state.score;
+    let topScore = this.state.topScore;
+
+    if (chosen1.includes(id)) {
+      score = 0;
+      chosen1 = [];
+    } else {
+      score++;
+      chosen1.push(id);
+      if(topScore < score) {
+        topScore = score;
+      };
+    };
+
+    const shuffledImages = this.shuffle(this.state.images);
+
+    this.setState({
+      images: [...shuffledImages],
+      chosen: [...chosen1],
+      score: score,
+      topScore: topScore
+    });
+  };
 
   render() {
     return (
@@ -43,12 +72,13 @@ class App extends Component {
               id={images.id}
               key={images.id}
               image={images.image}
+              clicky={this.clicky}
             />
           ))}
         </div>
       </Wrapper>
     );
-  }
+  };
 }
 
 export default App;

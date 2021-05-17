@@ -9,7 +9,7 @@ class Card extends Component {
 
     render () {
         return (
-            <div className="card" id={this.props.id}>
+            <div className="card" onClick={() => this.props.clicky(this.props.id)}>
                 <img alt="Random Interior Design, no cheating" src={this.props.image} />
             </div>
         )
