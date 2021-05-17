@@ -1,5 +1,4 @@
 .card {
-    background-color: brown; /* Delete this after Images */
     height: 325px;
     width: 325px;
     object-fit: contain;
@@ -9,4 +8,12 @@
 .card img {
     height: 100%;
     max-width: 100%;
+}
+
+.card img:hover {
+    transform: scale(0.98);
+}
+
+.card img:active {
+    transform: scale(0.96);
 }
