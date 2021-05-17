@@ -14,8 +14,10 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <h1>Clicky Game</h1>
-        <h2>Score: {this.state.score} ||| Top Score: {this.state.topScore}</h2>
+        <header>
+          <h1>Clicky Game</h1>
+          <h2>Score: {this.state.score} ||| Top Score: {this.state.topScore}</h2>
+        </header>
         <div>
           {this.state.images.map(images => (
             <Card 

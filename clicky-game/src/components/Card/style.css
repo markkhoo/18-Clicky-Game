@@ -2,5 +2,11 @@
     background-color: brown; /* Delete this after Images */
     height: 325px;
     width: 325px;
+    object-fit: contain;
+    overflow: hidden;
 }
 
+.card img {
+    height: 100%;
+    max-width: 100%;
+}

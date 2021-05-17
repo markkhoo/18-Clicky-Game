@@ -2,10 +2,23 @@
   padding-top: 50px;
   background: #ECEFF1;
   height: 100%;
+
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+
   padding: 20px;
   justify-content: space-around;
   align-content: flex-start;
   overflow: auto;
+}
+
+.wrapper header {
+  height: 150px;
+  text-align: center;
+}
+
+.wrapper div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
